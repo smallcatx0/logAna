@@ -1,0 +1,329 @@
+---------------------------------------------------------------
+[ 2019-04-08T17:38:56+08:00 ] 0.0.0.0 GET /budget/index.php/ware/index/index.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014872s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`role_user` [ RunTime:0.011058s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`role_user` WHERE  `user_id` = 877 LIMIT 1 [ RunTime:0.012857s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.016482s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` IN (10) [ RunTime:0.013548s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.007062s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `auth` [ RunTime:0.010306s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `auth` WHERE  `auth_level` = 1  AND `id` IN (1,5,8,19,21,24) ORDER BY `id` ASC,`orders` ASC [ RunTime:0.009758s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:38:57+08:00 ] 0.0.0.0 GET /budget/index.php/ware/index/home.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015607s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`role_user` [ RunTime:0.012728s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`role_user` WHERE  `user_id` = 877 LIMIT 1 [ RunTime:0.009173s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.010113s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` IN (10) [ RunTime:0.009983s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:01+08:00 ] 0.0.0.0 GET /budget/index.php/ware/affair/index.html
+[ sql ] [ DB ] CONNECT:[ UseTime:2.739043s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `affair` [ RunTime:0.010272s ]
+[ sql ] [ SQL ] SELECT * FROM `affair` WHERE  `roleID` = 10 [ RunTime:0.009798s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_data_collect` [ RunTime:0.009490s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `budget_data_collect` WHERE  `status` = 2  AND `check_status` = 0  AND `isDel` = 0  AND `newest` = 0  AND `cyear` = '2019'  AND `tjOfficeID` = '02037'  AND `collectType` = 1 LIMIT 1 [ RunTime:0.032750s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `budget_data_collect` WHERE  `status` = 2  AND `check_status` = 0  AND `isDel` = 0  AND `newest` = 0  AND `cyear` = '2019'  AND `tjOfficeID` = '02037'  AND `collectType` = 2 LIMIT 1 [ RunTime:0.005271s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:02+08:00 ] 0.0.0.0 POST /budget/index.php/ware/index/submenu.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011009s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.026351s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` = 10 LIMIT 1 [ RunTime:0.024732s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `auth` [ RunTime:0.012872s ]
+[ sql ] [ SQL ] SELECT id,auth_pid, auth_name, auth_name as text,  auth_a, auth_c, if(auth_a is null or auth_a = '', 'closed', 'open') as state FROM `auth` WHERE  (   id in(1,5,8,19,21,24) and auth_pid=1 ) [ RunTime:0.015085s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:05+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budgetcheck/execprojectdata.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007260s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec` [ RunTime:0.014851s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `budget_exec` `a` WHERE  `a`.`isDel` = 0  AND `tjOfficeID` = '02037' LIMIT 1 [ RunTime:0.013277s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as type_name FROM `budget_exec` `a` LEFT JOIN `budget_exec_type` `b` ON `a`.`typeID`=`b`.`ID` WHERE  `a`.`isDel` = 0  AND `tjOfficeID` = '02037' LIMIT 0,10 [ RunTime:0.010258s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.012682s ]
+[ sql ] [ SQL ] SELECT `userName` FROM `warehouse`.`user` WHERE  `userID` = 'ht01' LIMIT 1 [ RunTime:0.006395s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:07+08:00 ] 0.0.0.0 GET /budget/index.php/ware/budgetcheck/last_budget_query.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016927s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `v_last_budeget` [ RunTime:0.015224s ]
+[ sql ] [ SQL ] SELECT `DocID`,`tableDocID`,`tjOfficeID`,`tjOfficeName` FROM `v_last_budeget` WHERE  `isDel` = 0  AND `collectType` = 2  AND `newest` = 1  AND `gz_verify_status` = 4  AND `cyear` = '2019'  AND `tjOfficeID` = '02037' ORDER BY `ID` DESC LIMIT 1 [ RunTime:0.008094s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_table_column` [ RunTime:0.012742s ]
+[ sql ] [ SQL ] SELECT * FROM `budget_table_column` WHERE  `DocID` = 'SE20190401001'  AND `isDel` = 0 [ RunTime:0.006290s ]
+[ sql ] [ SQL ] SELECT `is_exec`,`vdef29`,`officeName`,`equipName`,`equipPrice`,`vdef7`,`quantity`,`vdef8`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`financialProject`,`frequencyOfUse`,`equipModel`,ID as necessityOfEquip,`linkman`,`linkmanPhone`,`services`,`chargeItem`,`chargeWay`,`singleTime`,`singelChargePrice`,`transFormer`,`consumableQuantity`,`staffQuantity`,`maintFrequency`,`vdef9`,`vdef10`,`ID` FROM `v_last_budeget` WHERE  `tjOfficeID` = '02037'  AND `isDel` = 0  AND `collectType` = 2  AND `newest` = 1  AND `gz_verify_status` = 4  AND `DocID` = 'GZYSC20190401001' [ RunTime:0.022131s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:12+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/verify.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010897s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.015839s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'bmksadmin'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.022209s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:12+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/verify.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014979s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.017715s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'bmksadmin'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.055827s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:16+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/verify.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.021538s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.033699s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'ht02'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.013206s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:21+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/verify.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.257447s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.013862s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'ht02'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.013600s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:21+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/login
+[ sql ] [ DB ] CONNECT:[ UseTime:2.771559s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`v_user_role_office` [ RunTime:0.012629s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`v_user_role_office` WHERE  `userID` = 'ht02' LIMIT 1 [ RunTime:0.015497s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.010952s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'ht02'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.009348s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:22+08:00 ] 0.0.0.0 GET /budget/index.php/ware/index/index.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.021795s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`role_user` [ RunTime:0.018094s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`role_user` WHERE  `user_id` = 880 LIMIT 1 [ RunTime:0.023163s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.013276s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` IN (11) [ RunTime:0.006916s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` = 11 LIMIT 1 [ RunTime:0.005499s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `auth` [ RunTime:0.009536s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `auth` WHERE  `auth_level` = 1  AND `id` IN (1,2,4,8,19,21,24) ORDER BY `id` ASC,`orders` ASC [ RunTime:0.006179s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:23+08:00 ] 0.0.0.0 GET /budget/index.php/ware/index/index.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.022311s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`role_user` [ RunTime:0.011686s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`role_user` WHERE  `user_id` = 880 LIMIT 1 [ RunTime:0.014011s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.008363s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` IN (11) [ RunTime:0.011946s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` = 11 LIMIT 1 [ RunTime:0.007933s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `auth` [ RunTime:0.012288s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `auth` WHERE  `auth_level` = 1  AND `id` IN (1,2,4,8,19,21,24) ORDER BY `id` ASC,`orders` ASC [ RunTime:0.010087s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:23+08:00 ] 0.0.0.0 GET /budget/index.php/ware/index/index.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010253s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`role_user` [ RunTime:0.016073s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`role_user` WHERE  `user_id` = 880 LIMIT 1 [ RunTime:0.005875s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.014568s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` IN (11) [ RunTime:0.011320s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` = 11 LIMIT 1 [ RunTime:0.007114s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `auth` [ RunTime:0.011702s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `auth` WHERE  `auth_level` = 1  AND `id` IN (1,2,4,8,19,21,24) ORDER BY `id` ASC,`orders` ASC [ RunTime:0.005074s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:24+08:00 ] 0.0.0.0 GET /budget/index.php/ware/index/home.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.055572s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`role_user` [ RunTime:0.012090s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`role_user` WHERE  `user_id` = 880 LIMIT 1 [ RunTime:0.007687s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.037196s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` IN (11) [ RunTime:0.014049s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:25+08:00 ] 0.0.0.0 GET /budget/index.php/ware/affair/index.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.021139s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `affair` [ RunTime:0.012298s ]
+[ sql ] [ SQL ] SELECT * FROM `affair` WHERE  `roleID` = 11 [ RunTime:0.013577s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_data_office` [ RunTime:0.010611s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `budget_data_office` WHERE  `isDel` = 0  AND `status` = 1  AND `cyear` = '2019'  AND `tjOfficeID` = '02036'  AND `type` = 2 LIMIT 1 [ RunTime:0.029948s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `budget_data_office` WHERE  `isDel` = 0  AND `status` = 1  AND `cyear` = '2019'  AND `tjOfficeID` = '02036'  AND `type` = 1 LIMIT 1 [ RunTime:0.007908s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_data_items_collect` [ RunTime:0.016194s ]
+[ sql ] [ SQL ] SELECT `ID` FROM `budget_data_items_collect` WHERE  `isDel` = 0  AND `is_exec` = -1 [ RunTime:0.006531s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec_items` [ RunTime:0.070689s ]
+[ sql ] [ SQL ] SELECT COUNT(a.ID) AS tp_count FROM `budget_exec_items` `a` LEFT JOIN `budget_exec` `b` ON `a`.`DocID`=`b`.`DocID` WHERE  `a`.`orignID` IN ('')  AND `a`.`isDel` = 0  AND `a`.`is_reject` = 1  AND `b`.`cyear` = '2019'  AND `b`.`commiterID` = 'ht02' LIMIT 1 [ RunTime:0.004702s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:27+08:00 ] 0.0.0.0 POST /budget/index.php/ware/index/submenu.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015561s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.013559s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` = 11 LIMIT 1 [ RunTime:0.005222s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `auth` [ RunTime:0.010510s ]
+[ sql ] [ SQL ] SELECT id,auth_pid, auth_name, auth_name as text,  auth_a, auth_c, if(auth_a is null or auth_a = '', 'closed', 'open') as state FROM `auth` WHERE  (   id in(1,2,4,8,19,21,24) and auth_pid=1 ) [ RunTime:0.023774s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:31+08:00 ] 0.0.0.0 GET /budget/index.php/ware/budgetcheck/last_budget_query.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.033121s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `v_last_budeget` [ RunTime:0.010210s ]
+[ sql ] [ SQL ] SELECT `DocID`,`tableDocID`,`tjOfficeID`,`tjOfficeName` FROM `v_last_budeget` WHERE  `isDel` = 0  AND `collectType` = 2  AND `newest` = 1  AND `gz_verify_status` = 4  AND `cyear` = '2019'  AND `tjOfficeID` = '02036' ORDER BY `ID` DESC LIMIT 1 [ RunTime:0.022154s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_table_column` [ RunTime:0.012249s ]
+[ sql ] [ SQL ] SELECT * FROM `budget_table_column` WHERE  `DocID` = 'SE20190404002'  AND `isDel` = 0 [ RunTime:0.005023s ]
+[ sql ] [ SQL ] SELECT `is_exec`,`vdef29`,`officeName`,`equipName`,`equipPrice`,`vdef7`,`quantity`,`vdef8`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`ID` FROM `v_last_budeget` WHERE  `tjOfficeID` = '02036'  AND `isDel` = 0  AND `collectType` = 2  AND `newest` = 1  AND `gz_verify_status` = 4  AND `DocID` = 'GZYSC20190404001' [ RunTime:0.029136s ]
+[ sql ] [ SQL ] SELECT `is_exec`,`vdef29`,`officeName`,`equipName`,`equipPrice`,`vdef7`,`quantity`,`vdef8`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`ID` FROM `v_last_budeget` WHERE  `tjOfficeID` = '02036'  AND `isDel` = 0  AND `collectType` = 2  AND `newest` = 1  AND `gz_verify_status` = 4  AND `DocID` = 'GZYSC20190404001' [ RunTime:0.032826s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:36+08:00 ] 0.0.0.0 GET /budget/index.php/ware/budgetcheck/choose_items_to_execute.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.027543s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec_type` [ RunTime:0.013717s ]
+[ sql ] [ SQL ] SELECT `ID`,`name` FROM `budget_exec_type` WHERE  `is_del` = 0 [ RunTime:0.025587s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:54+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budgetcheck/pushtoexecute.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.045377s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_data_items_collect` [ RunTime:0.018959s ]
+[ sql ] [ SQL ] SELECT `ID`,`is_exec`,`quantity` FROM `budget_data_items_collect` WHERE  `ID` IN (491) [ RunTime:0.005849s ]
+[ sql ] [ SQL ] SELECT `b`.`tableDocID` FROM `budget_data_items_collect` `a` LEFT JOIN `budget_data_collect` `b` ON `b`.`DocID`=`a`.`DocID` WHERE  `a`.`ID` = '491' LIMIT 1 [ RunTime:0.004675s ]
+[ sql ] [ SQL ] UPDATE `budget_data_items_collect`  SET `is_exec`=1,`vdef8`='2'  WHERE  `ID` = 491 [ RunTime:0.025148s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec` [ RunTime:0.014396s ]
+[ sql ] [ SQL ] INSERT INTO `budget_exec` (`DocID` , `name` , `typeID` , `commiterID` , `commitTime` , `create_time` , `attachment` , `tableDocID` , `remarks` , `cyear` , `tjOfficeID` , `tjOfficeName`) VALUES ('ZX2019040800004' , '123123' , 1 , 'ht02' , '2019-04-08 17:39:54' , 1554716394 , 0 , 'SE20190404002' , 'tttt' , '2019' , '02036' , '医学装备保障部') [ RunTime:0.013410s ]
+[ sql ] [ SQL ] SELECT `ID`,`DocID`,`orignID`,`equipName`,`equipPrice`,`quantity`,`sumPrice`,`country`,`nowQuantity`,`tradeIn`,`financialProject`,`frequencyOfUse`,`equipModel`,`necessityOfEquip`,`linkman`,`linkmanPhone`,`services`,`chargeItem`,`chargeWay`,`singleTime`,`singelChargePrice`,`transFormer`,`consumableQuantity`,`staffQuantity`,`maintFrequency`,`vdef1`,`vdef2`,`vdef3`,`vdef7`,`vdef8`,`vdef9`,`vdef10`,`vdef11`,`vdef12`,`vdef13`,`vdef14`,`vdef15`,`vdef16`,`vdef17`,`vdef18`,`vdef19`,`vdef20`,`vdef21`,`vdef22`,`vdef23`,`vdef24`,`vdef25`,`vdef26`,`vdef27`,`vdef28`,`vdef29`,`vdef30`,`isDel` FROM `budget_data_items_collect` WHERE  `ID` IN (491) [ RunTime:0.014684s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec_items` [ RunTime:0.011831s ]
+[ sql ] [ SQL ] INSERT INTO `budget_exec_items` (`DocID` , `orignID` , `equipName` , `equipPrice` , `quantity` , `sumPrice` , `country` , `nowQuantity` , `tradeIn` , `financialProject` , `frequencyOfUse` , `equipModel` , `necessityOfEquip` , `linkman` , `linkmanPhone` , `services` , `chargeItem` , `chargeWay` , `singleTime` , `singelChargePrice` , `transFormer` , `consumableQuantity` , `staffQuantity` , `maintFrequency` , `vdef1` , `vdef2` , `vdef3` , `vdef7` , `vdef8` , `vdef9` , `vdef10` , `vdef11` , `vdef12` , `vdef13` , `vdef14` , `vdef15` , `vdef16` , `vdef17` , `vdef18` , `vdef19` , `vdef20` , `vdef21` , `vdef22` , `vdef23` , `vdef24` , `vdef25` , `vdef26` , `vdef27` , `vdef28` , `vdef29` , `vdef30` , `isDel` , `remainder`) VALUES ( 'ZX2019040800004',491,'落地式离心机','35003.00','2','70006.00','国产','1','新增',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'专用设备','人南院区','','基本建设支出-专用设备购置','2','','',NULL,'','','','','','','','','','','','第一季度','','','','','','华西院区急诊儿科','03081081-OP08100-HX08101F',0,2 ) [ RunTime:0.015818s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:39:56+08:00 ] 0.0.0.0 GET /budget/index.php/ware/budgetcheck/last_budget_query.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013986s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `v_last_budeget` [ RunTime:0.023902s ]
+[ sql ] [ SQL ] SELECT `DocID`,`tableDocID`,`tjOfficeID`,`tjOfficeName` FROM `v_last_budeget` WHERE  `isDel` = 0  AND `collectType` = 2  AND `newest` = 1  AND `gz_verify_status` = 4  AND `cyear` = '2019'  AND `tjOfficeID` = '02036' ORDER BY `ID` DESC LIMIT 1 [ RunTime:0.018884s ]
+[ sql ] [ SQL ] SELECT `is_exec`,`vdef29`,`officeName`,`equipName`,`equipPrice`,`vdef7`,`quantity`,`vdef8`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`ID` FROM `v_last_budeget` WHERE  `tjOfficeID` = '02036'  AND `isDel` = 0  AND `collectType` = 2  AND `newest` = 1  AND `gz_verify_status` = 4  AND `DocID` = 'GZYSC20190404001' [ RunTime:0.006843s ]
+[ sql ] [ SQL ] SELECT `is_exec`,`vdef29`,`officeName`,`equipName`,`equipPrice`,`vdef7`,`quantity`,`vdef8`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`ID` FROM `v_last_budeget` WHERE  `tjOfficeID` = '02036'  AND `isDel` = 0  AND `collectType` = 2  AND `newest` = 1  AND `gz_verify_status` = 4  AND `DocID` = 'GZYSC20190404001' [ RunTime:0.009678s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:41:52+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/verify.html
+[ sql ] [ DB ] CONNECT:[ UseTime:1.729882s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.142392s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'bmksadmin'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.191437s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:41:54+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/verify.html
+[ sql ] [ DB ] CONNECT:[ UseTime:3.737157s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.114109s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'bmksadmin'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.007993s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:42:05+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/verify.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017739s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.010743s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'bmksadmin'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.009007s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:42:07+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/verify.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010284s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.012684s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'bmksadmin'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.011190s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:02+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/verify.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.021500s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.011344s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'bmksadmin'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.009815s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:11+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/verify.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.228291s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.060258s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'cgbzr'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.011374s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:13+08:00 ] 0.0.0.0 POST /budget/index.php/ware/login/login
+[ sql ] [ DB ] CONNECT:[ UseTime:0.021528s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`v_user_role_office` [ RunTime:0.017407s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`v_user_role_office` WHERE  `userID` = 'cgbzr' LIMIT 1 [ RunTime:0.049270s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`user` [ RunTime:0.031922s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`user` WHERE  `userID` = 'cgbzr'  AND `isdelete` = 0 LIMIT 1 [ RunTime:0.005389s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:14+08:00 ] 0.0.0.0 GET /budget/index.php/ware/index/index.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006688s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`role_user` [ RunTime:0.009135s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`role_user` WHERE  `user_id` = 1938 LIMIT 1 [ RunTime:0.008936s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.039168s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` IN (27) [ RunTime:0.012027s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` = 27 LIMIT 1 [ RunTime:0.004766s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `auth` [ RunTime:0.024549s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `auth` WHERE  `auth_level` = 1  AND `id` IN (1,14,16,15) ORDER BY `id` ASC,`orders` ASC [ RunTime:0.007562s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:15+08:00 ] 0.0.0.0 GET /budget/index.php/ware/index/home.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013894s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `warehouse`.`role_user` [ RunTime:0.009114s ]
+[ sql ] [ SQL ] SELECT * FROM `warehouse`.`role_user` WHERE  `user_id` = 1938 LIMIT 1 [ RunTime:0.007183s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.018751s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` IN (27) [ RunTime:0.004071s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:16+08:00 ] 0.0.0.0 POST /budget/index.php/ware/index/submenu.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.035524s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.011339s ]
+[ sql ] [ SQL ] SELECT * FROM `role` WHERE  `id` = 27 LIMIT 1 [ RunTime:0.006261s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `auth` [ RunTime:0.009945s ]
+[ sql ] [ SQL ] SELECT id,auth_pid, auth_name, auth_name as text,  auth_a, auth_c, if(auth_a is null or auth_a = '', 'closed', 'open') as state FROM `auth` WHERE  (   id in(1,14,16,15) and auth_pid=1 ) [ RunTime:0.007832s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:17+08:00 ] 0.0.0.0 GET /budget/index.php/ware/affair/index.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.036992s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `affair` [ RunTime:0.019767s ]
+[ sql ] [ SQL ] SELECT * FROM `affair` WHERE  `roleID` = 27 [ RunTime:0.029738s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_project` [ RunTime:0.008157s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `budget_project` WHERE  `status` = 1  AND `isDel` = 0 LIMIT 1 [ RunTime:0.004001s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:18+08:00 ] 0.0.0.0 GET /budget/index.php/ware/budget_execute/second_resolve.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014385s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `buygroup` [ RunTime:0.008693s ]
+[ sql ] [ SQL ] SELECT `groupid`,`groupname` FROM `buygroup` WHERE  `isDel` = 0 [ RunTime:0.009820s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:21+08:00 ] 0.0.0.0 POST /budget/index.php/ware/Query/showQuery
+[ sql ] [ DB ] CONNECT:[ UseTime:0.922277s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bill_query_condition` [ RunTime:0.009224s ]
+[ sql ] [ SQL ] SELECT * FROM `bill_query_condition` WHERE  `bill_type` = 'first_resolve_query'  AND `is_require` = 0  AND `visible` = 1 [ RunTime:0.014386s ]
+[ sql ] [ SQL ] SELECT * FROM `bill_query_condition` WHERE  `bill_type` = 'first_resolve_query'  AND `is_require` = 1  AND `visible` = 1 ORDER BY `sort` ASC [ RunTime:0.013174s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:26+08:00 ] 0.0.0.0 POST /budget/index.php/ware/query/query.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008016s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `v_budget_project` [ RunTime:0.010422s ]
+[ sql ] [ SQL ] SELECT `a`.* FROM `v_budget_project` `a` WHERE  `a`.`status` >= 1  AND `a`.`isDel` = 0 ORDER BY `commitTime` DESC [ RunTime:0.015591s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:32+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budget_execute/first_resolve_items.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.021680s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_project` [ RunTime:0.016757s ]
+[ sql ] [ SQL ] SELECT `tableDocID` FROM `budget_project` WHERE  `DocID` = 'PJ20190404002'  AND `isDel` = 0 LIMIT 1 [ RunTime:0.046484s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_project_items` [ RunTime:0.015798s ]
+[ sql ] [ SQL ] SELECT `vdef29`,`equipName`,`equipPrice`,`vdef7`,`projectQuantity`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`orignID`,`ID` FROM `budget_project_items` WHERE  `DocID` = 'PJ20190404002'  AND `isDel` = 0 [ RunTime:0.015191s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:38+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budget_execute/first_resolve_items.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.018675s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_project` [ RunTime:0.008827s ]
+[ sql ] [ SQL ] SELECT `tableDocID` FROM `budget_project` WHERE  `DocID` = 'PJ20190408001'  AND `isDel` = 0 LIMIT 1 [ RunTime:0.006749s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_project_items` [ RunTime:0.010244s ]
+[ sql ] [ SQL ] SELECT `vdef29`,`equipName`,`equipPrice`,`vdef7`,`projectQuantity`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`financialProject`,`frequencyOfUse`,`equipModel`,`necessityOfEquip`,`linkman`,`linkmanPhone`,`services`,`chargeItem`,`chargeWay`,`singleTime`,`singelChargePrice`,`transFormer`,`consumableQuantity`,`staffQuantity`,`maintFrequency`,`vdef9`,`vdef10`,`orignID`,`ID` FROM `budget_project_items` WHERE  `DocID` = 'PJ20190408001'  AND `isDel` = 0 [ RunTime:0.007388s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:42+08:00 ] 0.0.0.0 POST /budget/index.php/ware/Query/showQuery
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013892s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bill_query_condition` [ RunTime:0.015477s ]
+[ sql ] [ SQL ] SELECT * FROM `bill_query_condition` WHERE  `bill_type` = 'project_query'  AND `is_require` = 0  AND `visible` = 1 [ RunTime:0.005550s ]
+[ sql ] [ SQL ] SELECT * FROM `bill_query_condition` WHERE  `bill_type` = 'project_query'  AND `is_require` = 1  AND `visible` = 1 ORDER BY `sort` ASC [ RunTime:0.007377s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:45+08:00 ] 0.0.0.0 POST /budget/index.php/ware/query/query.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005342s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec_items` [ RunTime:0.010361s ]
+[ sql ] [ SQL ] SELECT `DocID` FROM `budget_exec_items` WHERE  `remainder` > 0 [ RunTime:0.008041s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec` [ RunTime:0.022861s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as type_name FROM `budget_exec` `a` LEFT JOIN `budget_exec_type` `b` ON `a`.`typeID`=`b`.`ID` WHERE  `a`.`isDel` = 0  AND `a`.`DocID` IN ('ZX2019040400001','ZX2019040400002','ZX2019040400004','ZX2019040800002','ZX2019040800004') [ RunTime:0.007797s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:47+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budget_execute/get_project_items.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016383s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec` [ RunTime:0.012088s ]
+[ sql ] [ SQL ] SELECT `tableDocID` FROM `budget_exec` WHERE  `DocID` = 'ZX2019040400002'  AND `isDel` = 0 LIMIT 1 [ RunTime:0.008697s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_table_column` [ RunTime:0.009865s ]
+[ sql ] [ SQL ] SELECT * FROM `budget_table_column` WHERE  `DocID` = 'SE20190403001'  AND `isDel` = 0 [ RunTime:0.010344s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec_items` [ RunTime:0.021803s ]
+[ sql ] [ SQL ] SELECT `remainder`,`vdef29`,`equipName`,`equipPrice`,`vdef7`,`vdef8`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`financialProject`,`frequencyOfUse`,`equipModel`,`necessityOfEquip`,`linkman`,`linkmanPhone`,`services`,`chargeItem`,`chargeWay`,`singleTime`,`singelChargePrice`,`transFormer`,`consumableQuantity`,`staffQuantity`,`maintFrequency`,`DocID`,`ID` FROM `budget_exec_items` WHERE  `DocID` = 'ZX2019040400002'  AND `isDel` = 0  AND `remainder` > 0 [ RunTime:0.011695s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:54+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budget_execute/get_project_items.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.079273s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec` [ RunTime:0.010746s ]
+[ sql ] [ SQL ] SELECT `tableDocID` FROM `budget_exec` WHERE  `DocID` = 'ZX2019040400004'  AND `isDel` = 0 LIMIT 1 [ RunTime:0.021950s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec_items` [ RunTime:0.025222s ]
+[ sql ] [ SQL ] SELECT `remainder`,`vdef29`,`equipName`,`equipPrice`,`vdef7`,`vdef8`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`DocID`,`ID` FROM `budget_exec_items` WHERE  `DocID` = 'ZX2019040400004'  AND `isDel` = 0  AND `remainder` > 0 [ RunTime:0.026670s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:43:55+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budget_execute/get_project_items.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.018803s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec` [ RunTime:0.010758s ]
+[ sql ] [ SQL ] SELECT `tableDocID` FROM `budget_exec` WHERE  `DocID` = 'ZX2019040400002'  AND `isDel` = 0 LIMIT 1 [ RunTime:0.016864s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec_items` [ RunTime:0.019080s ]
+[ sql ] [ SQL ] SELECT `remainder`,`vdef29`,`equipName`,`equipPrice`,`vdef7`,`vdef8`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`financialProject`,`frequencyOfUse`,`equipModel`,`necessityOfEquip`,`linkman`,`linkmanPhone`,`services`,`chargeItem`,`chargeWay`,`singleTime`,`singelChargePrice`,`transFormer`,`consumableQuantity`,`staffQuantity`,`maintFrequency`,`DocID`,`ID` FROM `budget_exec_items` WHERE  `DocID` = 'ZX2019040400002'  AND `isDel` = 0  AND `remainder` > 0 [ RunTime:0.017299s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:44:05+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budget_execute/second_resolve.html?src=project_query
+[ sql ] [ DB ] CONNECT:[ UseTime:0.026529s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec` [ RunTime:0.012745s ]
+[ sql ] [ SQL ] SELECT `a`.*,b.name as type_name FROM `budget_exec` `a` LEFT JOIN `budget_exec_type` `b` ON `a`.`typeID`=`b`.`ID` WHERE  `a`.`DocID` = 'ZX2019040400002' LIMIT 1 [ RunTime:0.043325s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec_items` [ RunTime:0.032275s ]
+[ sql ] [ SQL ] SELECT `vdef29`,`vdef30`,`equipName`,`equipPrice`,`vdef7`,`vdef8`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`financialProject`,`frequencyOfUse`,`equipModel`,`necessityOfEquip`,`linkman`,`linkmanPhone`,`services`,`chargeItem`,`chargeWay`,`singleTime`,`singelChargePrice`,`transFormer`,`consumableQuantity`,`staffQuantity`,`maintFrequency`,remainder as projectQuantity,ID as orignID,orignID as finalID FROM `budget_exec_items` WHERE  `DocID` = 'ZX2019040400002'  AND `isDel` = 0  AND `remainder` > 0  AND `ID` IN (6) [ RunTime:0.013469s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `buygroup` [ RunTime:0.029035s ]
+[ sql ] [ SQL ] SELECT `groupid`,`groupname` FROM `buygroup` WHERE  `isDel` = 0 [ RunTime:0.004285s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:44:27+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budget_execute/first_resolve_add.html
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011705s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_project` [ RunTime:0.010907s ]
+[ sql ] [ SQL ] INSERT INTO `budget_project` (`DocID` , `commitTime` , `create_time` , `commiterID` , `remarks` , `updaterID` , `status` , `tableDocID` , `cyear` , `name` , `typeID` , `recv_time` , `pDocID` , `groupid` , `attachment`) VALUES ('PJ20190408006' , '2019-04-08 17:44:26' , 1554716666 , 'cgbzr' , '4545454' , 'cgbzr' , 2 , 'SE20190403001' , '2019' , '项目40401' , 1 , 1554364570 , 'ZX2019040400002' , 'gp20181211' , 0) [ RunTime:0.034737s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec_items` [ RunTime:0.019185s ]
+[ sql ] [ SQL ] SELECT `DocID` FROM `budget_exec_items` WHERE  `ID` = 6 LIMIT 1 [ RunTime:0.013979s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_exec` [ RunTime:0.011866s ]
+[ sql ] [ SQL ] UPDATE `budget_exec`  SET `status`=1  WHERE  `DocID` = 'ZX2019040400002' [ RunTime:0.019347s ]
+[ sql ] [ SQL ] SELECT `remainder` FROM `budget_exec_items` WHERE  `ID` = 6 LIMIT 1 [ RunTime:0.011932s ]
+[ sql ] [ SQL ] UPDATE `budget_exec_items`  SET `remainder`=`remainder`-1  WHERE  `ID` = 6 [ RunTime:0.012452s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_project_items` [ RunTime:0.034498s ]
+[ sql ] [ SQL ] INSERT INTO `budget_project_items` (`vdef29` , `vdef30` , `equipName` , `equipPrice` , `vdef7` , `vdef8` , `vdef1` , `vdef2` , `sumPrice` , `country` , `vdef23` , `nowQuantity` , `tradeIn` , `financialProject` , `frequencyOfUse` , `equipModel` , `necessityOfEquip` , `linkman` , `linkmanPhone` , `services` , `chargeItem` , `chargeWay` , `singleTime` , `singelChargePrice` , `transFormer` , `consumableQuantity` , `staffQuantity` , `maintFrequency` , `projectQuantity` , `orignID` , `finalID` , `DocID` , `isDel`) VALUES ( '锦江院区急诊妇产科','03081081-OP08100-JJ08102F','一上科室新增（锦江院区）设备','6000.00','基本建设支出-无形资产购置','1','无形资产','锦江院区',6000,'进口','第一季度','0','新增','否','','','','华西急诊妇产科','2147483647','','','','','','','','','','1','6','439','PJ20190408006',0 ) [ RunTime:0.009561s ]
+---------------------------------------------------------------
+[ 2019-04-08T17:44:31+08:00 ] 0.0.0.0 GET /budget/index.php/ware/budget_execute/second_resolve.html?src=first_resolve_query&DocID=PJ20190408006
+[ sql ] [ DB ] CONNECT:[ UseTime:2.433104s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `v_budget_project` [ RunTime:0.014112s ]
+[ sql ] [ SQL ] SELECT * FROM `v_budget_project` WHERE  `DocID` = 'PJ20190408006' LIMIT 1 [ RunTime:0.012510s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `budget_project_items` [ RunTime:0.033486s ]
+[ sql ] [ SQL ] SELECT `vdef29`,`vdef30`,`equipName`,`equipPrice`,`vdef7`,`projectQuantity`,`vdef1`,`vdef2`,`sumPrice`,`country`,`vdef23`,`nowQuantity`,`tradeIn`,`financialProject`,`frequencyOfUse`,`equipModel`,`necessityOfEquip`,`linkman`,`linkmanPhone`,`services`,`chargeItem`,`chargeWay`,`singleTime`,`singelChargePrice`,`transFormer`,`consumableQuantity`,`staffQuantity`,`maintFrequency`,`orignID`,`ID` FROM `budget_project_items` WHERE  `DocID` = 'PJ20190408006'  AND `isDel` = 0 [ RunTime:0.006667s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `buygroup` [ RunTime:0.009543s ]
+[ sql ] [ SQL ] SELECT `groupid`,`groupname` FROM `buygroup` WHERE  `isDel` = 0 [ RunTime:0.008187s ]

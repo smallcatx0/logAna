@@ -1,0 +1,16 @@
+---------------------------------------------------------------
+[ 2019-04-09T09:59:31+08:00 ] 0.0.0.0 GET /budget/index.php/ware/budget/collect_budget_index.html
+[ log ] Array
+(
+    [fun] => [Budget.php:1152]
+    [dt] => 0.000186s
+)
+
+---------------------------------------------------------------
+[ 2019-04-09T09:59:58+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budget/collect_budget_index.html?src=budget_collect_query
+[ log ] Array
+(
+    [fun] => [Budget.php:1152]
+    [dt] => 0.119162s
+)
+

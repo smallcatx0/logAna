@@ -1,0 +1,38 @@
+---------------------------------------------------------------
+[ 2019-04-09T09:17:47+08:00 ] 0.0.0.0 GET /budget/index.php/ware/budgetcheck/last_budget_query.html
+[ error ] [8]未定义数组索引: select_field[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Budgetcheck.php:702]
+[ error ] [8]未定义数组索引: where_strings[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Budgetcheck.php:761]
+[ error ] [8]未定义数组索引: group_strings[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Budgetcheck.php:763]
+---------------------------------------------------------------
+[ 2019-04-09T10:00:02+08:00 ] 0.0.0.0 GET /budget/index.php/ware/budget/collect_budget_index.html?src=budget_collect_query&_search=false&nd=1554775199138&rows=100000000&page=1&sidx=&sord=asc
+[ error ] [8]未定义数组索引: commiterID[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Budget.php:1035]
+---------------------------------------------------------------
+[ 2019-04-09T11:00:40+08:00 ] 0.0.0.0 POST /budget/index.php/ware/query/query.html
+[ error ] [1]Class 'app\ware\controller\Exception' not found[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Query.php:212]
+---------------------------------------------------------------
+[ 2019-04-09T11:04:00+08:00 ] 0.0.0.0 POST /budget/index.php/ware/query/query.html
+[ error ] [1]Class 'app\ware\controller\Exception' not found[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Query.php:212]
+---------------------------------------------------------------
+[ 2019-04-09T11:05:40+08:00 ] 0.0.0.0 POST /budget/index.php/ware/query/query.html
+[ error ] [1]Class 'app\ware\controller\Exception' not found[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Query.php:212]
+---------------------------------------------------------------
+[ 2019-04-09T17:00:39+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budgetcheck/getexecitems.html
+[ error ] [2]array_unshift() expects parameter 1 to be array, null given[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Budgetcheck.php:1232]
+---------------------------------------------------------------
+[ 2019-04-09T17:00:48+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budgetcheck/getexecitems.html
+[ error ] [2]array_unshift() expects parameter 1 to be array, null given[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Budgetcheck.php:1232]
+---------------------------------------------------------------
+[ 2019-04-09T17:06:19+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budgetcheck/getexecitems.html
+[ error ] [2]array_unshift() expects parameter 1 to be array, null given[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Budgetcheck.php:1232]
+---------------------------------------------------------------
+[ 2019-04-09T17:06:53+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budgetcheck/getexecitems.html
+[ error ] [8]Array to string conversion[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\thinkphp\library\think\db\Query.php:827]
+---------------------------------------------------------------
+[ 2019-04-09T17:07:09+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budgetcheck/getexecitems.html
+[ error ] [8]Array to string conversion[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\thinkphp\library\think\db\Query.php:827]
+---------------------------------------------------------------
+[ 2019-04-09T17:08:24+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budgetcheck/getexecitems.html
+[ error ] [8]Array to string conversion[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\thinkphp\library\think\db\Query.php:827]
+---------------------------------------------------------------
+[ 2019-04-09T17:09:28+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budgetcheck/getexecitems.html
+[ error ] [8]Array to string conversion[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\thinkphp\library\think\db\Query.php:827]

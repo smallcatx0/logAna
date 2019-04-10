@@ -1,0 +1,8 @@
+---------------------------------------------------------------
+[ 2019-04-08T17:44:27+08:00 ] 0.0.0.0 POST /budget/index.php/ware/budget_execute/first_resolve_add.html
+[ log ] Array
+(
+    [fun] => [BudgetExecute.php:311]
+    [dt] => 0.320730s
+)
+

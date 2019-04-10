@@ -1,0 +1,26 @@
+---------------------------------------------------------------
+[ 2019-04-10T09:53:22+08:00 ] 0.0.0.0 GET /budget/index.php/ware/budgetcheck/last_budget_query.html
+[ error ] [8]未定义数组索引: select_field[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Budgetcheck.php:702]
+[ error ] [8]未定义数组索引: where_strings[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Budgetcheck.php:761]
+[ error ] [8]未定义数组索引: group_strings[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Budgetcheck.php:763]
+---------------------------------------------------------------
+[ 2019-04-10T10:40:11+08:00 ] 0.0.0.0 GET /budget/index.php/ware/common/selectinfos
+[ error ] [0]方法参数错误:info[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\thinkphp\library\think\App.php:431]
+---------------------------------------------------------------
+[ 2019-04-10T10:40:31+08:00 ] 0.0.0.0 GET /budget/index.php/ware/common/selectinfos?info=eqClass
+[ error ] [2]trim() expects parameter 1 to be string, array given[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Common.php:196]
+---------------------------------------------------------------
+[ 2019-04-10T10:53:30+08:00 ] 0.0.0.0 GET /budget/index.php/ware/common/selectaaaa
+[ error ] [0]Method app\ware\controller\Common::selectaaaa() does not exist[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\thinkphp\library\think\App.php:589]
+---------------------------------------------------------------
+[ 2019-04-10T10:56:31+08:00 ] 0.0.0.0 GET /budget/index.php/ware/common/selectinfos?info=eqClass&trem=%E8%AE%BE%E5%A4%87
+[ error ] [2]strpos(): needle is not a string or an integer[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Common.php:206]
+---------------------------------------------------------------
+[ 2019-04-10T10:57:10+08:00 ] 0.0.0.0 GET /budget/index.php/ware/common/selectinfos?info=eqClass&trem=%E8%AE%BE%E5%A4%87
+[ error ] [2]strpos(): needle is not a string or an integer[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Common.php:206]
+---------------------------------------------------------------
+[ 2019-04-10T10:57:45+08:00 ] 0.0.0.0 GET /budget/index.php/ware/common/selectinfos?info=eqClass&trem=%E8%AE%BE%E5%A4%871
+[ error ] [8]未定义变量: response[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\app\ware\controller\Common.php:213]
+---------------------------------------------------------------
+[ 2019-04-10T11:00:58+08:00 ] 0.0.0.0 GET /budget/index.php/ware/common/selectinfos?info=eqClass1&term=%E8%AE%BE%E5%A4%871
+[ error ] [0]variable type error： array[D:\codeApp\PHPWAMP_IN3\wwwroot\budget\thinkphp\library\think\Response.php:316]
