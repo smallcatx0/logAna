@@ -16,7 +16,7 @@
 
 正则提取日志中的关键信息
 
-```verilog
+```
 [ 2019-04-08T17:39:02+08:00 ] 0.0.0.0 POST /budget/index.php/ware/index/submenu.html
 [ sql ] [ DB ] CONNECT:[ UseTime:0.011009s ] mysql:host=192.168.2.194;dbname=budget;charset=utf8
 [ sql ] [ SQL ] SHOW COLUMNS FROM `role` [ RunTime:0.026351s ]
@@ -28,20 +28,24 @@
 
 
 数据库设计（父子表）
-
-log_info
-
-- id
-- time
-- method
-- url
-- sorce
-
-log_item
-
-- id
-- pid
-- type
-- con
-- use_time
-
+```
+DROP TABLE IF EXISTS "main"."log_info";
+CREATE TABLE "log_info" (
+    "id"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "time"  INTEGER,
+    "ip"  TEXT(16),
+    "method"  TEXT(8),
+    "url"  TEXT,
+    "source"  TEXT
+);
+DROP TABLE IF EXISTS "main"."log_items";
+CREATE TABLE "log_items" (
+    "id"  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "pid"  INTEGER NOT NULL,
+    "level"  TEXT(8),
+    "type"  TEXT(8),
+    "dt"  REAL(13,4),
+    "con"  TEXT,
+    "source"  TEXT
+);
+```

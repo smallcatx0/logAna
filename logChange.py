@@ -3,7 +3,8 @@ import os
 import time
 
 class logChange:
-    """日志提取转化
+    """日志提取转化  
+    @author Tan<smallcatx0@gmail.com>
     """
     info = {} # 日志记录信息
     items = {} # 日志内容
@@ -18,9 +19,12 @@ class logChange:
         self.initDbSql = conf['initDbSql'] if 'initDbSql' in conf else 'initDb.sql'
         self._db = EasySqlite.EasySqlite(self.dbPath)
 
-
+    # 解析日志头部(请求时间，ip，方法，地址)
     def anaHead(self,headstr):
         '''解析日志头部(请求时间，ip，方法，地址)
+        
+        @param headstr [str] 每条日志的第一行记录
+        @return [dict] 解析出的头部信息
         '''
         info = {}
         headinfo = headstr
@@ -40,6 +44,10 @@ class logChange:
 
     # 解析一条日志数据
     def anaItem(self,itemstr):
+        '''解析一条日志
+
+        @param itemstr [str] 一条日志数据
+        '''
         itemList = itemstr.split("\n")
         info = self.anaHead(itemList[0])
         items = []
@@ -58,8 +66,14 @@ class logChange:
             items.append(tmp)
         self.items = items
         return (info,items)
-    
+
+    # 获取日志（切割成单条）
     def fileGetCons(self,filePath):
+        '''从文件中获取日志
+
+        @param filePath [str] 日志文件的路径
+        @return [list] 日志数据列表
+        '''
         with open(filePath,encoding='utf-8') as fp :
             sginLine = fp.readline()
             content = fp.read()
@@ -68,6 +82,10 @@ class logChange:
     
     # 初始化数据库
     def initDb(self,initSqlFile=''):
+        '''初始化数据库
+
+        @param initSqlFile [str] 建表语句所在路径
+        '''
         initSqlFile = self.initDbSql if initSqlFile.strip() == '' else initSqlFile
         db = self._db
         if(os.path.exists(self.dbPath)):
@@ -78,7 +96,11 @@ class logChange:
             db.commit()
         return res
 
+    # 将解析的数据存入数据库
     def saveToDb(self):
+        '''将解析的数据存入数据库
+
+        '''
         infoData = self.info
         res = self._db.table('log_info').insert(infoData)
         if res:
@@ -95,10 +117,11 @@ class logChange:
         
         res = self._db.table('log_items').insertAll(itemsData)
         self._db.commit()
-        print(res)
+        return True
 
 if __name__ == "__main__":
     logC = logChange()
+    logC.initDb()
     logItems = logC.fileGetCons('log/201904/09_sql.log')
     res = logC.anaItem(logItems[3])
     logC.saveToDb()
