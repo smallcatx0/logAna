@@ -14,10 +14,8 @@ class logChange:
 
 
     def __init__(self,conf={}):
-        import EasySqlite
         self.dbPath = conf['dbPath'] if 'dbPath' in conf else 'log.db'
         self.initDbSql = conf['initDbSql'] if 'initDbSql' in conf else 'initDb.sql'
-        self._db = EasySqlite.EasySqlite(self.dbPath)
 
     # 解析日志头部(请求时间，ip，方法，地址)
     def anaHead(self,headstr):
@@ -86,19 +84,21 @@ class logChange:
 
         @param initSqlFile [str] 建表语句所在路径
         '''
+        import EasySqlite
         initSqlFile = self.initDbSql if initSqlFile.strip() == '' else initSqlFile
-        db = self._db
         if(os.path.exists(self.dbPath)):
-            self._db = db
-            return db
-        res = db.execSqlScript(initSqlFile)
-        if res:
-            db.commit()
-        return res
+            self._db = EasySqlite.EasySqlite(self.dbPath)
+            return True
+        else:
+            self._db = EasySqlite.EasySqlite(self.dbPath)
+            res = self._db.execSqlScript(initSqlFile)
+            if res:
+                self._db.commit()
+            return res
 
-    # 将解析的数据存入数据库
+    # 将解析的一条日志数据存入数据库
     def saveToDb(self):
-        '''将解析的数据存入数据库
+        '''将解析的一条日志数据存入数据库
 
         '''
         infoData = self.info
@@ -119,11 +119,30 @@ class logChange:
         self._db.commit()
         return True
 
+    # 将一日志文件转化为sqlite
+    def fileConv(self,filePath):
+        '''将一日志文件转化为sqlite
+
+        @param filePath [str] 日志文件的路径
+        '''
+        logList = self.fileGetCons(filePath)
+        taskLen = len(logList)
+        i = 0
+        for one in logList:
+            i += 1
+            self.anaItem(one) # 解析一条日志
+            self.saveToDb() # 存到数据库
+            printStr = "[%d/%d] add: %s(%d)" %(i,taskLen,self.info['source'],len(self.items))
+            print(printStr)
+        return True
+
+
 if __name__ == "__main__":
     logC = logChange()
     logC.initDb()
-    logItems = logC.fileGetCons('log/201904/09_sql.log')
-    res = logC.anaItem(logItems[3])
-    logC.saveToDb()
+    logC.fileConv('log/201904/10_sql.log')
+    # logItems = logC.fileGetCons('log/201904/09_sql.log')
+    # res = logC.anaItem(logItems[3])
+    # logC.saveToDb()
     # res = logC.initDb()
-    print(res[0])
+    # print()
